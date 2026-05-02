@@ -18,6 +18,21 @@ python -m uvicorn app.main:app --reload
 
 Open http://127.0.0.1:8000.
 
+## Run with Streamlit
+
+```powershell
+python -m pip install -r requirements.txt
+python -m streamlit run streamlit_app.py
+```
+
+## Deploy on Streamlit Community Cloud
+
+1. Push this repository to GitHub.
+2. Go to https://share.streamlit.io and create a new app.
+3. Select the repository and branch.
+4. Set the entrypoint file to `streamlit_app.py`.
+5. Deploy.
+
 ## What it does
 
 - Edit or import pure-component pressure/loading data.
