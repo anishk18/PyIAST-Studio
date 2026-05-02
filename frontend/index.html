@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>pyIAST Studio</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Ideal Adsorbed Solution Theory</p>
+          <h1>pyIAST Studio</h1>
+        </div>
+        <div class="run-strip">
+          <label>
+            <span>Total pressure</span>
+            <input id="total-pressure" type="number" min="0.0001" step="0.1" value="65" />
+          </label>
+          <div class="segmented" role="tablist" aria-label="Calculation mode">
+            <button id="forward-mode" class="active" type="button">Forward</button>
+            <button id="reverse-mode" type="button">Reverse</button>
+          </div>
+          <button id="run-button" class="primary" type="button">Run IAST</button>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <aside class="sidebar" aria-label="Component setup">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Pure-component data</p>
+              <h2>Components</h2>
+            </div>
+            <button id="add-component" class="icon-button" type="button" title="Add component">+</button>
+          </div>
+          <div id="components"></div>
+        </aside>
+
+        <section class="main-panel" aria-label="IAST results">
+          <div class="controls-row">
+            <div>
+              <p class="eyebrow" id="composition-label">Gas phase mole fractions</p>
+              <h2>Mixture Conditions</h2>
+            </div>
+            <button id="normalize-button" type="button">Normalize fractions</button>
+          </div>
+          <div id="fractions" class="fraction-grid"></div>
+
+          <div class="visual-band">
+            <div>
+              <p class="eyebrow">Fit preview</p>
+              <h2>Isotherms</h2>
+            </div>
+            <canvas id="fit-chart" width="920" height="320"></canvas>
+          </div>
+
+          <div class="results-grid">
+            <section class="result-panel">
+              <p class="eyebrow">Predicted mixture</p>
+              <h2>Loadings</h2>
+              <div id="result-table" class="table-placeholder">Run a calculation to see component loadings.</div>
+            </section>
+            <section class="result-panel">
+              <p class="eyebrow">Diagnostics</p>
+              <h2>Model Parameters</h2>
+              <div id="params-table" class="table-placeholder">Fitted parameters will appear here.</div>
+            </section>
+          </div>
+
+          <div id="message" class="message" role="status"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="component-template">
+      <article class="component-card">
+        <div class="component-head">
+          <input class="component-name" aria-label="Component name" />
+          <button class="remove-component icon-button" type="button" title="Remove component">×</button>
+        </div>
+        <div class="component-options">
+          <label>
+            <span>Method</span>
+            <select class="component-method">
+              <option value="model">Model fit</option>
+              <option value="interpolator">Interpolator</option>
+            </select>
+          </label>
+          <label>
+            <span>Model</span>
+            <select class="component-model"></select>
+          </label>
+          <label>
+            <span>Fill value</span>
+            <input class="component-fill" type="number" min="0" step="0.001" placeholder="optional" />
+          </label>
+        </div>
+        <div class="component-toolbar">
+          <label class="file-button">
+            Import CSV
+            <input class="component-file" type="file" accept=".csv,text/csv" />
+          </label>
+          <button class="add-row" type="button">Add row</button>
+        </div>
+        <div class="data-table-wrap"></div>
+      </article>
+    </template>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
