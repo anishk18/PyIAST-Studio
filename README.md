@@ -7,8 +7,7 @@ forward or reverse IAST calculations through
 The app uses a FastAPI backend for the Python package and a build-free static
 frontend, so there is no Node/npm step.
 
-# Web Link for App on Streamlit
-https://pyiast-studio-ark.streamlit.app/
+`Link: https://pyiast-studio-ark.streamlit.app/`
 
 
 
