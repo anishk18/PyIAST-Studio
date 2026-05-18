@@ -18,7 +18,7 @@ STATIC_DIR = ROOT / "frontend"
 
 app = FastAPI(
     title="pyIAST Studio",
-    description="A browser front end for fitting pure-component isotherms and running IAST calculations.",
+    description="A browser front end for fitting multi-component isotherms and running IAST calculations.",
     version="0.1.0",
 )
 app.add_middleware(
