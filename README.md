@@ -7,6 +7,11 @@ forward or reverse IAST calculations through
 The app uses a FastAPI backend for the Python package and a build-free static
 frontend, so there is no Node/npm step.
 
+# Web Link for App on Streamlit
+https://pyiast-studio-ark.streamlit.app/
+
+
+
 ## Run locally
 
 ```powershell
@@ -25,13 +30,6 @@ python -m pip install -r requirements.txt
 python -m streamlit run streamlit_app.py
 ```
 
-## Deploy on Streamlit Community Cloud
-
-1. Push this repository to GitHub.
-2. Go to https://share.streamlit.io and create a new app.
-3. Select the repository and branch.
-4. Set the entrypoint file to `streamlit_app.py`.
-5. Deploy.
 
 ## What it does
 
